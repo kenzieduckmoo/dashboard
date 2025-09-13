@@ -1,4 +1,61 @@
 {
+  "Twitch": {
+    "icon": "💜",
+    "links": [
+      {
+        "name": "Following (Live)",
+        "url": "https://www.twitch.tv/directory/following/live",
+        "description": "See who's live from your follows"
+      },
+      {
+        "name": "Creator Dashboard",
+        "url": "https://dashboard.twitch.tv/u/kenzieduckmoo/home",
+        "description": "Your streaming dashboard and analytics"
+      },
+      {
+        "name": "Fiamma",
+        "url": "https://www.twitch.tv/fiamma",
+        "description": "Fiamma's stream"
+      },
+      {
+        "name": "Meeix",
+        "url": "https://www.twitch.tv/meeix",
+        "description": "Meeix's stream"
+      },
+      {
+        "name": "Davinah",
+        "url": "https://www.twitch.tv/davinah_00",
+        "description": "Davinah's stream"
+      }
+    ]
+  },
+
+  "Daily Essentials": {
+    "icon": "📱",
+    "links": [
+      {
+        "name": "Gmail",
+        "url": "https://gmail.com",
+        "description": "Email and productivity"
+      },
+      {
+        "name": "YouTube",
+        "url": "https://youtube.com",
+        "description": "Videos, tutorials, and entertainment"
+      },
+      {
+        "name": "Spotify",
+        "url": "https://spotify.com",
+        "description": "Music and podcasts"
+      },
+      {
+        "name": "Discord",
+        "url": "https://discord.com",
+        "description": "Chat with friends and communities"
+      }
+    ]
+  },
+
   "Hardware & Tech": {
     "icon": "🔧",
     "links": [
@@ -92,28 +149,64 @@
     ]
   },
 
-  "Daily Essentials": {
-    "icon": "📱",
+  "Social Networks": {
+    "icon": "🌐",
     "links": [
       {
-        "name": "Gmail",
-        "url": "https://gmail.com",
-        "description": "Email and productivity"
+        "name": "Twitter/X",
+        "url": "https://twitter.com",
+        "description": "Social media and news"
       },
       {
-        "name": "YouTube",
-        "url": "https://youtube.com",
-        "description": "Videos, tutorials, and entertainment"
+        "name": "Instagram",
+        "url": "https://instagram.com",
+        "description": "Photos and stories"
       },
       {
-        "name": "Spotify",
-        "url": "https://spotify.com",
-        "description": "Music and podcasts"
+        "name": "TikTok",
+        "url": "https://tiktok.com",
+        "description": "Short videos and trends"
       },
       {
-        "name": "Discord",
-        "url": "https://discord.com",
-        "description": "Chat with friends and communities"
+        "name": "Reddit",
+        "url": "https://reddit.com",
+        "description": "Communities and discussions"
+      },
+      {
+        "name": "Mastodon",
+        "url": "https://mastodon.social",
+        "description": "Decentralized social network"
+      }
+    ]
+  },
+
+  "Dispensaries": {
+    "icon": "🌿",
+    "links": [
+      {
+        "name": "Leafly",
+        "url": "https://leafly.com",
+        "description": "Strain info and dispensary finder"
+      },
+      {
+        "name": "Weedmaps",
+        "url": "https://weedmaps.com",
+        "description": "Local dispensaries and delivery"
+      },
+      {
+        "name": "Dutchie",
+        "url": "https://dutchie.com",
+        "description": "Online ordering and pickup"
+      },
+      {
+        "name": "Eaze",
+        "url": "https://eaze.com",
+        "description": "Cannabis delivery service"
+      },
+      {
+        "name": "Iheartjane",
+        "url": "https://iheartjane.com",
+        "description": "Dispensary menus and ordering"
       }
     ]
   },
