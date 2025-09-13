@@ -1,0 +1,146 @@
+{
+  "Hardware & Tech": {
+    "icon": "🔧",
+    "links": [
+      {
+        "name": "r/buildapc",
+        "url": "https://reddit.com/r/buildapc",
+        "description": "Best PC building advice and troubleshooting"
+      },
+      {
+        "name": "PCPartPicker",
+        "url": "https://pcpartpicker.com",
+        "description": "Price tracking and compatibility checking"
+      },
+      {
+        "name": "Newegg",
+        "url": "https://newegg.com",
+        "description": "Hardware shopping with good deals"
+      },
+      {
+        "name": "Hardware Unboxed",
+        "url": "https://youtube.com/@HardwareUnboxed",
+        "description": "Honest GPU and CPU reviews"
+      },
+      {
+        "name": "Linus Tech Tips",
+        "url": "https://youtube.com/@LinusTechTips",
+        "description": "Tech reviews and building guides"
+      }
+    ]
+  },
+
+  "Learning German": {
+    "icon": "🇩🇪",
+    "links": [
+      {
+        "name": "Duolingo",
+        "url": "https://duolingo.com",
+        "description": "Daily German practice and lessons"
+      },
+      {
+        "name": "Deutsche Welle",
+        "url": "https://dw.com/en/learn-german/s-2469",
+        "description": "Free German courses and news"
+      },
+      {
+        "name": "r/German",
+        "url": "https://reddit.com/r/German",
+        "description": "German learning community and Q&A"
+      },
+      {
+        "name": "Conjuguemos",
+        "url": "https://conjuguemos.com",
+        "description": "Verb conjugation practice"
+      },
+      {
+        "name": "Nemo German",
+        "url": "https://nemogerman.com",
+        "description": "Audio pronunciation and phrases"
+      }
+    ]
+  },
+
+  "Coding Resources": {
+    "icon": "💻",
+    "links": [
+      {
+        "name": "MDN Web Docs",
+        "url": "https://developer.mozilla.org",
+        "description": "Complete web development reference"
+      },
+      {
+        "name": "Stack Overflow",
+        "url": "https://stackoverflow.com",
+        "description": "Programming Q&A and problem solving"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com",
+        "description": "Code repositories and version control"
+      },
+      {
+        "name": "freeCodeCamp",
+        "url": "https://freecodecamp.org",
+        "description": "Free coding bootcamp and certifications"
+      },
+      {
+        "name": "CSS-Tricks",
+        "url": "https://css-tricks.com",
+        "description": "CSS tutorials and web design tips"
+      }
+    ]
+  },
+
+  "Daily Essentials": {
+    "icon": "📱",
+    "links": [
+      {
+        "name": "Gmail",
+        "url": "https://gmail.com",
+        "description": "Email and productivity"
+      },
+      {
+        "name": "YouTube",
+        "url": "https://youtube.com",
+        "description": "Videos, tutorials, and entertainment"
+      },
+      {
+        "name": "Spotify",
+        "url": "https://spotify.com",
+        "description": "Music and podcasts"
+      },
+      {
+        "name": "Discord",
+        "url": "https://discord.com",
+        "description": "Chat with friends and communities"
+      }
+    ]
+  },
+
+  "LGBTQ+ Resources": {
+    "icon": "🏳️‍⚧️",
+    "links": [
+      {
+        "name": "r/MtF",
+        "url": "https://reddit.com/r/MtF",
+        "description": "Trans women community and support"
+      },
+      {
+        "name": "r/actuallesbians",
+        "url": "https://reddit.com/r/actuallesbians",
+        "description": "Lesbian community and discussions"
+      },
+      {
+        "name": "PFLAG",
+        "url": "https://pflag.org",
+        "description": "LGBTQ+ support and resources"
+      },
+      {
+        "name": "Trevor Project",
+        "url": "https://thetrevorproject.org",
+        "description": "Crisis support and mental health"
+      }
+    ]
+  }
+}
