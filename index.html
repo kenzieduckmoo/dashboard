@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-input {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            font-size: 1rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            transform: scale(1.02);
+            box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+        }
+
+        .sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .section {
+            background: rgba(255,255,255,0.9);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 1;
+        }
+
+        .section.hidden {
+            display: none;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+        }
+
+        .section h2 {
+            color: #5a67d8;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-icon {
+            font-size: 1.5rem;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .link {
+            display: block;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 20px rgba(240, 147, 251, 0.4);
+        }
+
+        .link:nth-child(2n) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .link:nth-child(2n):hover {
+            box-shadow: 0 4px 20px rgba(79, 172, 254, 0.4);
+        }
+
+        .link:nth-child(3n) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .link:nth-child(3n):hover {
+            box-shadow: 0 4px 20px rgba(67, 233, 123, 0.4);
+        }
+
+        /* Dark mode trans flag colors! 🏳️‍⚧️ */
+        body.dark .link:nth-child(5n+1) {
+            background: linear-gradient(135deg, #5bcefa 0%, #91d8ff 100%); /* Light blue */
+        }
+
+        body.dark .link:nth-child(5n+1):hover {
+            box-shadow: 0 4px 20px rgba(91, 206, 250, 0.4);
+        }
+
+        body.dark .link:nth-child(5n+2) {
+            background: linear-gradient(135deg, #f5a9b8 0%, #ffb3c6 100%); /* Pink */
+        }
+
+        body.dark .link:nth-child(5n+2):hover {
+            box-shadow: 0 4px 20px rgba(245, 169, 184, 0.4);
+        }
+
+        body.dark .link:nth-child(5n+3) {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); /* White */
+            color: #333;
+        }
+
+        body.dark .link:nth-child(5n+3):hover {
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.4);
+        }
+
+        body.dark .link:nth-child(5n+4) {
+            background: linear-gradient(135deg, #f5a9b8 0%, #ffb3c6 100%); /* Pink */
+        }
+
+        body.dark .link:nth-child(5n+4):hover {
+            box-shadow: 0 4px 20px rgba(245, 169, 184, 0.4);
+        }
+
+        body.dark .link:nth-child(5n+5) {
+            background: linear-gradient(135deg, #5bcefa 0%, #91d8ff 100%); /* Light blue */
+        }
+
+        body.dark .link:nth-child(5n+5):hover {
+            box-shadow: 0 4px 20px rgba(91, 206, 250, 0.4);
+        }
+
+        .link-name {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .link-description {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-top: 50px;
+        }
+
+        .error {
+            background: rgba(255,107,107,0.9);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Dark mode styles */
+        body.dark {
+            background: linear-gradient(135deg, #232526 0%, #414345 100%);
+        }
+
+        body.dark .section {
+            background: rgba(255,255,255,0.1);
+            color: #e2e8f0;
+        }
+
+        body.dark .section h2 {
+            color: #81e6d9;
+        }
+
+        body.dark .search-input {
+            background: rgba(255,255,255,0.1);
+            color: #e2e8f0;
+        }
+
+        body.dark .search-input::placeholder {
+            color: rgba(226, 232, 240, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .sections {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .theme-toggle {
+                top: 15px;
+                right: 15px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>My Dashboard ✨</h1>
+            <p>All my favorite corners of the internet</p>
+        </div>
+
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search your links..." onkeyup="searchLinks(this.value)">
+        </div>
+
+        <div id="loading" class="loading">Loading your awesome links... 🚀</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div class="sections" id="sections" style="display: none;">
+            <!-- Sections will be generated from links.json -->
+        </div>
+    </div>
+
+    <script>
+        let allLinksData = {};
+        let allSections = [];
+
+        // Load links from external JSON file
+        async function loadLinks() {
+            try {
+                const response = await fetch('links.json');
+                if (!response.ok) {
+                    throw new Error(`Failed to load links: ${response.status}`);
+                }
+                allLinksData = await response.json();
+                generateSections();
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('sections').style.display = 'grid';
+            } catch (error) {
+                console.error('Error loading links:', error);
+                document.getElementById('loading').style.display = 'none';
+                const errorDiv = document.getElementById('error');
+                errorDiv.style.display = 'block';
+                errorDiv.innerHTML = `
+                    <h3>Oops! Couldn't load your links 😅</h3>
+                    <p>Make sure you have a <code>links.json</code> file in the same folder!</p>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                `;
+            }
+        }
+
+        // Generate HTML sections from the loaded data
+        function generateSections() {
+            const sectionsContainer = document.getElementById('sections');
+            sectionsContainer.innerHTML = '';
+            allSections = [];
+
+            Object.entries(allLinksData).forEach(([sectionName, sectionData]) => {
+                const section = document.createElement('div');
+                section.className = 'section';
+                section.dataset.sectionName = sectionName.toLowerCase();
+                
+                const linksHTML = sectionData.links.map(link => {
+                    const description = link.description ? 
+                        `<div class="link-description">${link.description}</div>` : '';
+                    
+                    return `
+                        <a href="${link.url}" class="link" target="_blank" data-name="${link.name.toLowerCase()}">
+                            <div class="link-name">${link.name}</div>
+                            ${description}
+                        </a>
+                    `;
+                }).join('');
+
+                section.innerHTML = `
+                    <h2>
+                        <span class="section-icon">${sectionData.icon || '📂'}</span>
+                        ${sectionName}
+                    </h2>
+                    <div class="links">
+                        ${linksHTML}
+                    </div>
+                `;
+                
+                sectionsContainer.appendChild(section);
+                allSections.push(section);
+            });
+        }
+
+        // Search functionality
+        function searchLinks(query) {
+            const searchTerm = query.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                // Show all sections
+                allSections.forEach(section => {
+                    section.classList.remove('hidden');
+                    const links = section.querySelectorAll('.link');
+                    links.forEach(link => link.style.display = 'block');
+                });
+                return;
+            }
+
+            allSections.forEach(section => {
+                const sectionName = section.dataset.sectionName;
+                const links = section.querySelectorAll('.link');
+                let hasVisibleLinks = false;
+
+                // Check if section name matches
+                const sectionMatches = sectionName.includes(searchTerm);
+
+                links.forEach(link => {
+                    const linkName = link.dataset.name;
+                    const linkText = link.textContent.toLowerCase();
+                    
+                    if (sectionMatches || linkName.includes(searchTerm) || linkText.includes(searchTerm)) {
+                        link.style.display = 'block';
+                        hasVisibleLinks = true;
+                    } else {
+                        link.style.display = 'none';
+                    }
+                });
+
+                // Hide section if no visible links
+                if (hasVisibleLinks) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            const button = document.querySelector('.theme-toggle');
+            button.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+            
+            // Save theme preference
+            localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+        }
+
+        // Load theme preference
+        function loadTheme() {
+            const darkMode = localStorage.getItem('darkMode') === 'true';
+            if (darkMode) {
+                document.body.classList.add('dark');
+                document.querySelector('.theme-toggle').textContent = '☀️';
+            }
+        }
+
+        // Initialize everything
+        loadTheme();
+        loadLinks();
+    </script>
+</body>
+</html>
