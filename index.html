@@ -315,6 +315,8 @@
     <script>
         let allLinksData = {};
         let allSections = [];
+        let linkUsage = JSON.parse(localStorage.getItem('linkUsage') || '{}');
+        let sortByUsage = localStorage.getItem('sortByUsage') === 'true';
 
         // Load links from external JSON file
         async function loadLinks() {
@@ -325,8 +327,10 @@
                 }
                 allLinksData = await response.json();
                 generateSections();
+                populateCategoryDropdown();
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('sections').style.display = 'grid';
+                updateSortButton();
             } catch (error) {
                 console.error('Error loading links:', error);
                 document.getElementById('loading').style.display = 'none';
@@ -351,14 +355,32 @@
                 section.className = 'section';
                 section.dataset.sectionName = sectionName.toLowerCase();
                 
-                const linksHTML = sectionData.links.map(link => {
+                // Sort links if enabled
+                let links = [...sectionData.links];
+                if (sortByUsage) {
+                    links.sort((a, b) => {
+                        const usageA = linkUsage[a.url] || 0;
+                        const usageB = linkUsage[b.url] || 0;
+                        return usageB - usageA;
+                    });
+                }
+                
+                const linksHTML = links.map(link => {
                     const description = link.description ? 
                         `<div class="link-description">${link.description}</div>` : '';
                     
+                    const usage = linkUsage[link.url] || 0;
+                    const usageDisplay = sortByUsage && usage > 0 ? 
+                        `<div class="usage-count">Clicked ${usage} times</div>` : '';
+                    
                     return `
-                        <a href="${link.url}" class="link" target="_blank" data-name="${link.name.toLowerCase()}">
+                        <a href="${link.url}" class="link" target="_blank" 
+                           data-name="${link.name.toLowerCase()}" 
+                           data-url="${link.url}"
+                           onclick="trackLinkClick('${link.url}')">
                             <div class="link-name">${link.name}</div>
                             ${description}
+                            ${usageDisplay}
                         </a>
                     `;
                 }).join('');
@@ -378,12 +400,120 @@
             });
         }
 
-        // Search functionality
+        // Track link clicks for usage sorting
+        function trackLinkClick(url) {
+            linkUsage[url] = (linkUsage[url] || 0) + 1;
+            localStorage.setItem('linkUsage', JSON.stringify(linkUsage));
+        }
+
+        // Toggle sort mode
+        function toggleSort() {
+            sortByUsage = !sortByUsage;
+            localStorage.setItem('sortByUsage', sortByUsage);
+            generateSections();
+            updateSortButton();
+        }
+
+        function updateSortButton() {
+            const btn = document.querySelector('.sort-toggle-btn');
+            btn.textContent = sortByUsage ? '🔤 Sort Alphabetically' : '📊 Sort by Usage';
+        }
+
+        // Weather functionality
+        async function loadWeather() {
+            try {
+                // Get user's location
+                const position = await new Promise((resolve, reject) => {
+                    navigator.geolocation.getCurrentPosition(resolve, reject);
+                });
+                
+                const { latitude, longitude } = position.coords;
+                
+                // Using a free weather API (you'd need to get an API key)
+                // For demo purposes, showing placeholder
+                updateWeatherDisplay({
+                    temp: '72°F',
+                    description: 'Partly Cloudy',
+                    location: 'Kennett, MO'
+                });
+            } catch (error) {
+                updateWeatherDisplay({
+                    temp: '--°',
+                    description: 'Location access needed',
+                    location: 'Enable location'
+                });
+            }
+        }
+
+        function updateWeatherDisplay(weather) {
+            const widget = document.getElementById('weather');
+            widget.querySelector('.weather-temp').textContent = weather.temp;
+            widget.querySelector('.weather-desc').textContent = weather.description;
+            widget.querySelector('.weather-location').textContent = `📍 ${weather.location}`;
+        }
+
+        // Quick Add functionality
+        function openQuickAdd() {
+            document.getElementById('quickAddModal').classList.add('show');
+        }
+
+        function closeQuickAdd() {
+            document.getElementById('quickAddModal').classList.remove('show');
+            document.getElementById('quickAddForm').reset();
+        }
+
+        function populateCategoryDropdown() {
+            const select = document.getElementById('linkCategory');
+            select.innerHTML = '<option value="">Select a category...</option>';
+            Object.keys(allLinksData).forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                select.appendChild(option);
+            });
+        }
+
+        // Handle quick add form submission
+        document.getElementById('quickAddForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('linkName').value;
+            const url = document.getElementById('linkUrl').value;
+            const description = document.getElementById('linkDescription').value;
+            const category = document.getElementById('linkCategory').value;
+            
+            // Create the new link object
+            const newLink = {
+                name: name,
+                url: url,
+                description: description || undefined
+            };
+            
+            // Add to data
+            allLinksData[category].links.push(newLink);
+            
+            // Regenerate sections
+            generateSections();
+            
+            // Close modal
+            closeQuickAdd();
+            
+            // Show success message
+            alert(`✨ Added "${name}" to ${category}!\n\nNote: This is temporary - to make it permanent, you'll need to add it to your links.json file!`);
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('quickAddModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQuickAdd();
+            }
+        });
+
+        // Search functionality (existing)
         function searchLinks(query) {
             const searchTerm = query.toLowerCase().trim();
             
             if (searchTerm === '') {
-                // Show all sections
                 allSections.forEach(section => {
                     section.classList.remove('hidden');
                     const links = section.querySelectorAll('.link');
@@ -397,7 +527,6 @@
                 const links = section.querySelectorAll('.link');
                 let hasVisibleLinks = false;
 
-                // Check if section name matches
                 const sectionMatches = sectionName.includes(searchTerm);
 
                 links.forEach(link => {
@@ -412,7 +541,6 @@
                     }
                 });
 
-                // Hide section if no visible links
                 if (hasVisibleLinks) {
                     section.classList.remove('hidden');
                 } else {
@@ -421,17 +549,16 @@
             });
         }
 
-        // Theme toggle
+        // Theme toggle (existing)
         function toggleTheme() {
             document.body.classList.toggle('dark');
             const button = document.querySelector('.theme-toggle');
             button.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
             
-            // Save theme preference
             localStorage.setItem('darkMode', document.body.classList.contains('dark'));
         }
 
-        // Load theme preference
+        // Load theme preference (existing)
         function loadTheme() {
             const darkMode = localStorage.getItem('darkMode') === 'true';
             if (darkMode) {
@@ -443,6 +570,64 @@
         // Initialize everything
         loadTheme();
         loadLinks();
+        loadWeather();
+
+        // Register service worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(registrationError => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // PWA install prompt
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            e.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = e;
+            
+            // Add install button to header if not already installed
+            if (!window.matchMedia('(display-mode: standalone)').matches) {
+                addInstallButton();
+            }
+        });
+
+        function addInstallButton() {
+            const headerActions = document.querySelector('.header-actions');
+            const installBtn = document.createElement('button');
+            installBtn.className = 'quick-add-btn';
+            installBtn.innerHTML = '📱 Install App';
+            installBtn.onclick = installPWA;
+            headerActions.appendChild(installBtn);
+        }
+
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            }
+        }
+
+        // Hide install button when app is installed
+        window.addEventListener('appinstalled', (evt) => {
+            console.log('Dashboard app was installed');
+            const installBtn = document.querySelector('[onclick="installPWA()"]');
+            if (installBtn) {
+                installBtn.remove();
+            }
+        });
     </script>
 </body>
 </html>
