@@ -40,7 +40,7 @@
       },
       {
         "name": "YouTube",
-        "url": "https://youtube.com",
+        "url": "https://www.youtube.com/feed/subscriptions",
         "description": "Videos, tutorials, and entertainment"
       },
       {
@@ -153,8 +153,8 @@
     "icon": "🌐",
     "links": [
       {
-        "name": "Twitter/X",
-        "url": "https://twitter.com",
+        "name": "Threads",
+        "url": "https://www.threads.com/",
         "description": "Social media and news"
       },
       {
