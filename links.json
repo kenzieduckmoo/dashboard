@@ -184,29 +184,29 @@
     "icon": "🌿",
     "links": [
       {
+        "name": "Good Day Farm",
+        "url": "https://gooddayfarmdispensary.com/kennett-menu/",
+        "description": "Kennett Dispensary menu and info"
+      },
+      {
+        "name": "Greenlight Dispensary",
+        "url": "https://greenlightdispensary.com/hayti-menu/?geo-redirected=true",
+        "description": "Hayti Dispensary menu and info"
+      },
+      {
+        "name": "Codes",
+        "url": "https://codesdispensary.com/location/cardwell-mo/#dutchie-menu",
+        "description": "Cardwell Dispensary menu and info"
+      },
+      {
+        "name": "High Profile",
+        "url": "https://highprofilecannabis.com/shop/holland-dispensary",
+        "description": "Holland Dispensary menu and info"
+      },
+      {
         "name": "Leafly",
         "url": "https://leafly.com",
-        "description": "Strain info and dispensary finder"
-      },
-      {
-        "name": "Weedmaps",
-        "url": "https://weedmaps.com",
-        "description": "Local dispensaries and delivery"
-      },
-      {
-        "name": "Dutchie",
-        "url": "https://dutchie.com",
-        "description": "Online ordering and pickup"
-      },
-      {
-        "name": "Eaze",
-        "url": "https://eaze.com",
-        "description": "Cannabis delivery service"
-      },
-      {
-        "name": "Iheartjane",
-        "url": "https://iheartjane.com",
-        "description": "Dispensary menus and ordering"
+        "description": "Strain Lookup and Reviews"
       }
     ]
   },
