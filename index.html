@@ -579,9 +579,10 @@
         // Initialize everything
         loadTheme();
         loadLinks();
-        loadWeather();
+        // loadWeather(); // Comment out for now since it's causing issues
 
-        // Register service worker for PWA (only if files exist)
+        // Register service worker for PWA (only if we want it)
+        /*
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
@@ -593,6 +594,7 @@
                     });
             });
         }
+        */
 
         // PWA install prompt
         let deferredPrompt;
