@@ -56,98 +56,37 @@
     ]
   },
 
-  "Hardware & Tech": {
-    "icon": "🔧",
+  "Google Stack": {
+    "icon": "🔍",
     "links": [
       {
-        "name": "r/buildapc",
-        "url": "https://reddit.com/r/buildapc",
-        "description": "Best PC building advice and troubleshooting"
+        "name": "Google Images",
+        "url": "https://images.google.com",
+        "description": "Visual search and image resources"
       },
       {
-        "name": "PCPartPicker",
-        "url": "https://pcpartpicker.com",
-        "description": "Price tracking and compatibility checking"
+        "name": "Google Maps",
+        "url": "https://maps.google.com",
+        "description": "Navigation and location services"
       },
       {
-        "name": "Newegg",
-        "url": "https://newegg.com",
-        "description": "Hardware shopping with good deals"
+        "name": "Google Docs",
+        "url": "https://docs.google.com",
+        "description": "Document creation and collaboration"
       },
       {
-        "name": "Hardware Unboxed",
-        "url": "https://youtube.com/@HardwareUnboxed",
-        "description": "Honest GPU and CPU reviews"
+        "name": "Google Sheets",
+        "url": "https://sheets.google.com",
+        "description": "Spreadsheets and data analysis"
       },
       {
-        "name": "Linus Tech Tips",
-        "url": "https://youtube.com/@LinusTechTips",
-        "description": "Tech reviews and building guides"
+        "name": "Google Translate",
+        "url": "https://translate.google.com",
+        "description": "Language translation and learning"
       }
     ]
   },
 
-  "Learning German": {
-    "icon": "🇩🇪",
-    "links": [
-      {
-        "name": "Duolingo",
-        "url": "https://duolingo.com",
-        "description": "Daily German practice and lessons"
-      },
-      {
-        "name": "Deutsche Welle",
-        "url": "https://dw.com/en/learn-german/s-2469",
-        "description": "Free German courses and news"
-      },
-      {
-        "name": "r/German",
-        "url": "https://reddit.com/r/German",
-        "description": "German learning community and Q&A"
-      },
-      {
-        "name": "Conjuguemos",
-        "url": "https://conjuguemos.com",
-        "description": "Verb conjugation practice"
-      },
-      {
-        "name": "Nemo German",
-        "url": "https://nemogerman.com",
-        "description": "Audio pronunciation and phrases"
-      }
-    ]
-  },
-
-  "Coding Resources": {
-    "icon": "💻",
-    "links": [
-      {
-        "name": "MDN Web Docs",
-        "url": "https://developer.mozilla.org",
-        "description": "Complete web development reference"
-      },
-      {
-        "name": "Stack Overflow",
-        "url": "https://stackoverflow.com",
-        "description": "Programming Q&A and problem solving"
-      },
-      {
-        "name": "GitHub",
-        "url": "https://github.com",
-        "description": "Code repositories and version control"
-      },
-      {
-        "name": "freeCodeCamp",
-        "url": "https://freecodecamp.org",
-        "description": "Free coding bootcamp and certifications"
-      },
-      {
-        "name": "CSS-Tricks",
-        "url": "https://css-tricks.com",
-        "description": "CSS tutorials and web design tips"
-      }
-    ]
-  },
 
   "Social Networks": {
     "icon": "🌐",
@@ -238,12 +177,70 @@
         "name": "v0 by Vercel",
         "url": "https://v0.dev",
         "description": "Generate UI components from text prompts"
-      },
-      {
-        "name": "Perplexity",
-        "url": "https://perplexity.ai",
-        "description": "AI search engine with citations"
       }
     ]
   }
+
+    "Learning German": {
+    "icon": "🇩🇪",
+    "links": [
+      {
+        "name": "Duolingo",
+        "url": "https://duolingo.com",
+        "description": "Daily German practice and lessons"
+      },
+      {
+        "name": "Deutsche Welle",
+        "url": "https://dw.com/en/learn-german/s-2469",
+        "description": "Free German courses and news"
+      },
+      {
+        "name": "r/German",
+        "url": "https://reddit.com/r/German",
+        "description": "German learning community and Q&A"
+      },
+      {
+        "name": "Conjuguemos",
+        "url": "https://conjuguemos.com",
+        "description": "Verb conjugation practice"
+      },
+      {
+        "name": "Nemo German",
+        "url": "https://nemogerman.com",
+        "description": "Audio pronunciation and phrases"
+      }
+    ]
+  },
+
+  "Coding Resources": {
+    "icon": "💻",
+    "links": [
+      {
+        "name": "MDN Web Docs",
+        "url": "https://developer.mozilla.org",
+        "description": "Complete web development reference"
+      },
+      {
+        "name": "Stack Overflow",
+        "url": "https://stackoverflow.com",
+        "description": "Programming Q&A and problem solving"
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com",
+        "description": "Code repositories and version control"
+      },
+      {
+        "name": "freeCodeCamp",
+        "url": "https://freecodecamp.org",
+        "description": "Free coding bootcamp and certifications"
+      },
+      {
+        "name": "CSS-Tricks",
+        "url": "https://css-tricks.com",
+        "description": "CSS tutorials and web design tips"
+      }
+    ]
+  },
+
 }
