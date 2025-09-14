@@ -475,6 +475,9 @@
 
         // Setup event listeners after DOM is ready
         function setupEventListeners() {
+            // Populate the category dropdown now that the modal exists
+            populateCategoryDropdown();
+            
             // Handle quick add form submission
             const quickAddForm = document.getElementById('quickAddForm');
             if (quickAddForm) {
