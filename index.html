@@ -100,23 +100,31 @@
 
         .timezone-corner {
             display: flex;
-            flex-direction: column;
-            gap: 8px;
+            flex-direction: row;
+            gap: 20px;
             align-items: flex-start;
         }
 
         .timezone-compact {
             color: white;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            text-align: center;
         }
 
         .timezone-time {
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.1;
+        }
+
+        .timezone-day {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin: 1px 0;
         }
 
         .timezone-label {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             opacity: 0.8;
         }
 
@@ -523,6 +531,11 @@
                 justify-content: center;
                 gap: 15px;
                 order: 3;
+                flex-wrap: wrap;
+            }
+            
+            .timezone-compact {
+                font-size: 0.8rem;
             }
             
             .header-center {
@@ -571,14 +584,17 @@
             <div class="timezone-corner">
                 <div class="timezone-compact" id="melbourne">
                     <div class="timezone-time">--:--</div>
+                    <div class="timezone-day">---</div>
                     <div class="timezone-label">Melbourne</div>
                 </div>
                 <div class="timezone-compact" id="chicago">
                     <div class="timezone-time">--:--</div>
+                    <div class="timezone-day">---</div>
                     <div class="timezone-label">Chicago</div>
                 </div>
                 <div class="timezone-compact" id="germany">
                     <div class="timezone-time">--:--</div>
+                    <div class="timezone-day">---</div>
                     <div class="timezone-label">Germany</div>
                 </div>
             </div>
@@ -755,9 +771,14 @@
 
         function updateWeatherDisplay(weather) {
             const widget = document.getElementById('weather');
-            widget.querySelector('.weather-temp').textContent = weather.temp;
-            widget.querySelector('.weather-desc').textContent = weather.description;
-            widget.querySelector('.weather-location').textContent = `📍 ${weather.location}`;
+            if (widget) {
+                const tempEl = widget.querySelector('.weather-temp');
+                const descEl = widget.querySelector('.weather-desc');
+                
+                if (tempEl) tempEl.textContent = weather.temp;
+                if (descEl) descEl.textContent = weather.description;
+                // Note: removed location display since it doesn't fit in compact header
+            }
         }
 
 
@@ -853,24 +874,36 @@
             
             // Melbourne (AEST - UTC+10, AEDT - UTC+11 during DST)
             const melbourne = new Date(now.toLocaleString("en-US", {timeZone: "Australia/Melbourne"}));
-            document.querySelector('#melbourne .timezone-time').textContent = 
-                melbourne.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
-            document.querySelector('#melbourne .timezone-date').textContent = 
-                melbourne.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+            const melbourneTimeEl = document.querySelector('#melbourne .timezone-time');
+            const melbourneDayEl = document.querySelector('#melbourne .timezone-day');
+            if (melbourneTimeEl) {
+                melbourneTimeEl.textContent = melbourne.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+            }
+            if (melbourneDayEl) {
+                melbourneDayEl.textContent = melbourne.toLocaleDateString('en-US', { weekday: 'short' });
+            }
             
             // Chicago (CDT/CST)
             const chicago = new Date(now.toLocaleString("en-US", {timeZone: "America/Chicago"}));
-            document.querySelector('#chicago .timezone-time').textContent = 
-                chicago.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
-            document.querySelector('#chicago .timezone-date').textContent = 
-                chicago.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+            const chicagoTimeEl = document.querySelector('#chicago .timezone-time');
+            const chicagoDayEl = document.querySelector('#chicago .timezone-day');
+            if (chicagoTimeEl) {
+                chicagoTimeEl.textContent = chicago.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+            }
+            if (chicagoDayEl) {
+                chicagoDayEl.textContent = chicago.toLocaleDateString('en-US', { weekday: 'short' });
+            }
             
             // Germany (CET/CEST)
             const germany = new Date(now.toLocaleString("en-US", {timeZone: "Europe/Berlin"}));
-            document.querySelector('#germany .timezone-time').textContent = 
-                germany.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
-            document.querySelector('#germany .timezone-date').textContent = 
-                germany.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+            const germanyTimeEl = document.querySelector('#germany .timezone-time');
+            const germanyDayEl = document.querySelector('#germany .timezone-day');
+            if (germanyTimeEl) {
+                germanyTimeEl.textContent = germany.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+            }
+            if (germanyDayEl) {
+                germanyDayEl.textContent = germany.toLocaleDateString('en-US', { weekday: 'short' });
+            }
         }
 
         // Quick notes functionality

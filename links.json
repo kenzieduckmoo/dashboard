@@ -167,15 +167,15 @@
         "url": "https://tiktok.com",
         "description": "Short videos and trends"
       },
-      {
-        "name": "Reddit",
-        "url": "https://reddit.com",
-        "description": "Communities and discussions"
+      {f
+        "name": "BlueSky",
+        "url": "https://bsky.app/",
+        "description": "Old Twitter But Silly"
       },
       {
-        "name": "Mastodon",
-        "url": "https://mastodon.social",
-        "description": "Decentralized social network"
+        "name": "Facebook",
+        "url": "https://www.facebook.com/",
+        "description": "Still Used by Some Groups"
       }
     ]
   },
