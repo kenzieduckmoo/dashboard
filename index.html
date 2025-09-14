@@ -454,6 +454,8 @@
 
         // Quick Add functionality
         function openQuickAdd() {
+            // Populate dropdown when modal opens (not before)
+            populateCategoryDropdown();
             document.getElementById('quickAddModal').classList.add('show');
         }
 
