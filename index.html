@@ -473,41 +473,50 @@
             });
         }
 
-        // Handle quick add form submission
-        document.getElementById('quickAddForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('linkName').value;
-            const url = document.getElementById('linkUrl').value;
-            const description = document.getElementById('linkDescription').value;
-            const category = document.getElementById('linkCategory').value;
-            
-            // Create the new link object
-            const newLink = {
-                name: name,
-                url: url,
-                description: description || undefined
-            };
-            
-            // Add to data
-            allLinksData[category].links.push(newLink);
-            
-            // Regenerate sections
-            generateSections();
-            
-            // Close modal
-            closeQuickAdd();
-            
-            // Show success message
-            alert(`✨ Added "${name}" to ${category}!\n\nNote: This is temporary - to make it permanent, you'll need to add it to your links.json file!`);
-        });
-
-        // Close modal when clicking outside
-        document.getElementById('quickAddModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeQuickAdd();
+        // Setup event listeners after DOM is ready
+        function setupEventListeners() {
+            // Handle quick add form submission
+            const quickAddForm = document.getElementById('quickAddForm');
+            if (quickAddForm) {
+                quickAddForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('linkName').value;
+                    const url = document.getElementById('linkUrl').value;
+                    const description = document.getElementById('linkDescription').value;
+                    const category = document.getElementById('linkCategory').value;
+                    
+                    // Create the new link object
+                    const newLink = {
+                        name: name,
+                        url: url,
+                        description: description || undefined
+                    };
+                    
+                    // Add to data
+                    allLinksData[category].links.push(newLink);
+                    
+                    // Regenerate sections
+                    generateSections();
+                    
+                    // Close modal
+                    closeQuickAdd();
+                    
+                    // Show success message
+                    alert(`✨ Added "${name}" to ${category}!\n\nNote: This is temporary - to make it permanent, you'll need to add it to your links.json file!`);
+                });
             }
-        });
+
+            // Close modal when clicking outside
+            const quickAddModal = document.getElementById('quickAddModal');
+            if (quickAddModal) {
+                quickAddModal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeQuickAdd();
+                    }
+                });
+            }
+        }
 
         // Search functionality (existing)
         function searchLinks(query) {
@@ -572,15 +581,15 @@
         loadLinks();
         loadWeather();
 
-        // Register service worker for PWA
+        // Register service worker for PWA (only if files exist)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('./sw.js')
                     .then(registration => {
                         console.log('SW registered: ', registration);
                     })
                     .catch(registrationError => {
-                        console.log('SW registration failed: ', registrationError);
+                        console.log('SW registration failed (this is ok for now): ', registrationError);
                     });
             });
         }
