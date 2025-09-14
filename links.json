@@ -179,9 +179,9 @@
         "description": "Generate UI components from text prompts"
       }
     ]
-  }
+  },
 
-    "Learning German": {
+  "Learning German": {
     "icon": "🇩🇪",
     "links": [
       {
@@ -241,6 +241,5 @@
         "description": "CSS tutorials and web design tips"
       }
     ]
-  },
-
+  }
 }
