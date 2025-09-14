@@ -185,29 +185,29 @@
     "icon": "🇩🇪",
     "links": [
       {
-        "name": "Duolingo",
-        "url": "https://duolingo.com",
-        "description": "Daily German practice and lessons"
+        "name": "Babbel",
+        "url": "https://babbel.com",
+        "description": "Comprehensive German courses with real conversations"
+      },
+      {
+        "name": "Busuu",
+        "url": "https://busuu.com",
+        "description": "AI-powered German learning with native speaker feedback"
       },
       {
         "name": "Deutsche Welle",
         "url": "https://dw.com/en/learn-german/s-2469",
-        "description": "Free German courses and news"
+        "description": "Free German courses and news from German broadcaster"
       },
       {
-        "name": "r/German",
-        "url": "https://reddit.com/r/German",
-        "description": "German learning community and Q&A"
+        "name": "Lingoda",
+        "url": "https://lingoda.com",
+        "description": "Live German classes with native teachers"
       },
       {
         "name": "Conjuguemos",
         "url": "https://conjuguemos.com",
-        "description": "Verb conjugation practice"
-      },
-      {
-        "name": "Nemo German",
-        "url": "https://nemogerman.com",
-        "description": "Audio pronunciation and phrases"
+        "description": "Verb conjugation practice and grammar drills"
       }
     ]
   },
