@@ -211,28 +211,38 @@
     ]
   },
 
-  "LGBTQ+ Resources": {
-    "icon": "🏳️‍⚧️",
+  "AI Tools": {
+    "icon": "🤖",
     "links": [
       {
-        "name": "r/MtF",
-        "url": "https://reddit.com/r/MtF",
-        "description": "Trans women community and support"
+        "name": "ChatGPT",
+        "url": "https://chat.openai.com",
+        "description": "OpenAI's conversational AI assistant"
       },
       {
-        "name": "r/actuallesbians",
-        "url": "https://reddit.com/r/actuallesbians",
-        "description": "Lesbian community and discussions"
+        "name": "Claude",
+        "url": "https://claude.ai",
+        "description": "Anthropic's AI assistant for coding and analysis"
       },
       {
-        "name": "PFLAG",
-        "url": "https://pflag.org",
-        "description": "LGBTQ+ support and resources"
+        "name": "GitHub Copilot",
+        "url": "https://github.com/features/copilot",
+        "description": "AI pair programmer for code completion"
       },
       {
-        "name": "Trevor Project",
-        "url": "https://thetrevorproject.org",
-        "description": "Crisis support and mental health"
+        "name": "Cursor",
+        "url": "https://cursor.sh",
+        "description": "AI-powered code editor with smart completions"
+      },
+      {
+        "name": "v0 by Vercel",
+        "url": "https://v0.dev",
+        "description": "Generate UI components from text prompts"
+      },
+      {
+        "name": "Perplexity",
+        "url": "https://perplexity.ai",
+        "description": "AI search engine with citations"
       }
     ]
   }
