@@ -30,6 +30,37 @@
     ]
   },
 
+  "Warcraft": {
+    "icon": "⚔️",
+    "links": [
+      {
+        "name": "Raidbots",
+        "url": "https://www.raidbots.com/simbot",
+        "description": "Character simulation and optimization"
+      },
+      {
+        "name": "Wowhead",
+        "url": "https://wowhead.com",
+        "description": "Complete database and guides"
+      },
+      {
+        "name": "Dungeon Guide",
+        "url": "https://dungeon.guide",
+        "description": "Interactive dungeon maps and routes"
+      },
+      {
+        "name": "Warcraft Logs",
+        "url": "https://warcraftlogs.com",
+        "description": "Combat log analysis and rankings"
+      },
+      {
+        "name": "Raider.IO",
+        "url": "https://raider.io",
+        "description": "Mythic+ scores and leaderboards"
+      }
+    ]
+  },
+
   "Daily Essentials": {
     "icon": "📱",
     "links": [
