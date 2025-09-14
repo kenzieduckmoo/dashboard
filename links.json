@@ -80,9 +80,14 @@
         "description": "Music and podcasts"
       },
       {
-        "name": "Discord",
-        "url": "https://discord.com",
-        "description": "Chat with friends and communities"
+        "name": "OnlyFans",
+        "url": "https://onlyfans.com/",
+        "description": "Creator content platform"
+      },
+      {
+        "name": "The Pirate Bay",
+        "url": "https://thepiratebay.org/index.html",
+        "description": "Torrent search and downloads"
       }
     ]
   },
