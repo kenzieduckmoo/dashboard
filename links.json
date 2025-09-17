@@ -57,6 +57,11 @@
         "name": "Raider.IO",
         "url": "https://raider.io",
         "description": "Mythic+ scores and leaderboards"
+      },
+      {
+        "name": "WoW Professions",
+        "url": "https://www.wow-professions.com/profession-leveling-guides",
+        "description": "Profession leveling guides and recipes"
       }
     ]
   },
