@@ -30,41 +30,37 @@
     ]
   },
 
-  "Warcraft": {
-    "icon": "⚔️",
+    "Local Services": {
+    "icon": "🌐",
     "links": [
       {
-        "name": "Raidbots",
-        "url": "https://www.raidbots.com/simbot",
-        "description": "Character simulation and optimization"
+        "name": "Radarr",
+        "url": "http://10.20.30.133:7878/",
+        "description": "Movie database management"
       },
       {
-        "name": "Wowhead",
-        "url": "https://wowhead.com",
-        "description": "Complete database and guides"
+        "name": "Sonarr",
+        "url": "http://10.20.30.133:8989/",
+        "description": "TV Show database management"
       },
       {
-        "name": "Dungeon Guide",
-        "url": "https://dungeon.guide",
-        "description": "Interactive dungeon maps and routes"
+        "name": "Prowlarr",
+        "url": "http://10.20.30.133:9696/",
+        "description": "Database indexer management"
+      },
+            {
+        "name": "qBittorrent",
+        "url": "http://10.20.30.133:8080/",
+        "description": "Torrent Downloads"
       },
       {
-        "name": "Warcraft Logs",
-        "url": "https://warcraftlogs.com",
-        "description": "Combat log analysis and rankings"
-      },
-      {
-        "name": "Raider.IO",
-        "url": "https://raider.io",
-        "description": "Mythic+ scores and leaderboards"
-      },
-      {
-        "name": "WoW Professions",
-        "url": "https://www.wow-professions.com/profession-leveling-guides",
-        "description": "Profession leveling guides and recipes"
+        "name": "Portainer",
+        "url": "https://10.20.30.133:9443/#!/3/docker/containers",
+        "description": "Docker container management"
       }
     ]
   },
+
 
   "Daily Essentials": {
     "icon": "📱",
@@ -128,7 +124,38 @@
     ]
   },
 
+  "Warcraft": {
+    "icon": "⚔️",
+    "links": [
+      {
+        "name": "Raidbots",
+        "url": "https://www.raidbots.com/simbot",
+        "description": "Character simulation and optimization"
+      },
+      {
+        "name": "Wowhead",
+        "url": "https://wowhead.com",
+        "description": "Complete database and guides"
+      },
+      {
+        "name": "Dungeon Guide",
+        "url": "https://dungeon.guide",
+        "description": "Interactive dungeon maps and routes"
+      },
+            {
+        "name": "Raider.IO",
+        "url": "https://raider.io",
+        "description": "Mythic+ scores and leaderboards"
+      },
+      {
+        "name": "WoW Professions",
+        "url": "https://www.wow-professions.com/profession-leveling-guides",
+        "description": "Profession leveling guides and recipes"
+      }
+    ]
+  },
 
+  
   "Social Networks": {
     "icon": "🌐",
     "links": [
