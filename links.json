@@ -55,7 +55,7 @@
       },
       {
         "name": "JellySeerr",
-        "url": "https://10.20.30.133:5055",
+        "url": "http://10.20.30.133:5055",
         "description": "Content Request and Discovery"
       }
     ]
