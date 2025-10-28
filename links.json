@@ -54,9 +54,9 @@
         "description": "Torrent Downloads"
       },
       {
-        "name": "Portainer",
-        "url": "https://10.20.30.133:9443/#!/3/docker/containers",
-        "description": "Docker container management"
+        "name": "JellySeerr",
+        "url": "https://10.20.30.133:5055",
+        "description": "Content Request and Discovery"
       }
     ]
   },
